@@ -1,0 +1,2 @@
+react routing
+npm i -g npm-check-updates -> ncu
