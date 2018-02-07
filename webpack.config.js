@@ -3,24 +3,36 @@ var webpack = require('webpack');
 var path = require('path');
 
 module.exports = {
-  context: path.join(__dirname, "src"),
   devtool: debug ? "inline-sourcemap" : null,
-  entry: "./js/client.js",
+  entry: "./src/js/routes/user/authStyle.sass",
   module: {
-    loaders: [
+      rules: [{
+          test: /\.sass$/,
+          use: [
+
+              {
+                  loader: "style-loader"
+              },
+              {
+                  loader: "css-loader"
+              },
+              {
+                  loader: "sass-loader"
+
+              }]
+      },
       {
-        test: /\.jsx?$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['react', 'es2015', 'stage-0'],
-          plugins: ['react-html-attrs', 'transform-class-properties', 'transform-decorators-legacy'],
-        }
-      }
-    ]
+          test: /\.jsx?$/,
+          exclude: /(node_modules|bower_components)/,
+          loader: 'babel-loader',
+          query: {
+              presets: ['react', 'es2015', 'stage-0'],
+              plugins: ['react-html-attrs', 'transform-class-properties', 'transform-decorators-legacy'],
+          }
+      }],
   },
   output: {
-    path: __dirname + "/src/",
+    path: path.resolve("./dist/"),
     filename: "client.min.js"
   },
   plugins: debug ? [] : [
