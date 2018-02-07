@@ -1,5 +1,5 @@
 import React from "react";
-import "./authStyle.sass";
+import "./authStyle.scss";
 
 export default class Auth extends React.Component {
     constructor() {
