@@ -1,4 +1,79 @@
+html, body, #app {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+input {
+  display: block;
+  width: 85%;
+}
+
+.header {
+  //background-image: url('./header.jpg');
+  //background-image: linear-gradient(black, white, white 60%, black);
+  .headerTitle {
+    font-family: "Edwardian Script ITC";
+    background-color: #ffffff;
+    font-size-adjust: 0.9;
+    margin-top: 6%;
+  }
+}
+
+.cont {
+    display: grid;
+    grid-template-rows: [header] 20% [body] 80%;
+    height: 100%;
+    width: 100%;
+}
 
 .header {
     text-align: center;
+    border-bottom: solid thin black;
+}
+
+$inputs: [Forms] 80% [Buttons] 20%;
+.body {
+  margin: 3%;
+    display: grid;
+    grid-template-columns: [login] 50% [register] 50%;
+  #login {
+    display: grid;
+    grid-template-rows: $inputs;
+    border-right: solid thin black;
+    .loginForms {
+      text-align: center;
+      margin-right: 10%;
+      margin-top: 20%;
+      height: 10%;
+    }
+    #loginLB {
+      margin-top: 5%;
+      margin-right: 10%;
+      height: 50%;
+      border-radius: 15px;
+      background-color: #62a2ff;
+    }
+  }
+  #register {
+    display: grid;
+    grid-template-rows: $inputs;
+    text-align: center;
+    .registerForms {
+      text-align: center;
+      height: 8%;
+      margin-left: 10%;
+      margin-right: 5%;
+      margin-top: 10%;
+    }
+    #registerRF {
+      margin-top: 5%;
+      margin-left: 10%;
+      height: 50%;
+      border-radius: 15px;
+      background-color: #ff9c45;
+    }
+
+  }
 }
