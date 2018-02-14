@@ -2,3 +2,8 @@ react routing
 npm i -g npm-check-updates -> ncu
 npm run dev (run webserver with hotload)
 chekc file watcher count
+
+
+if login, check if empty -> alert if empty
+
+react router ->

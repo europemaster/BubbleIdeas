@@ -1,10 +1,11 @@
-html, body, #app {
-    height: 100%;
-    width: 100%;
+
+#app {
+    height: 100vh;
+    width: 100vw;
     margin: 0;
     padding: 0;
-    overflow: hidden;
 }
+
 input {
   display: block;
   width: 85%;
@@ -15,9 +16,11 @@ input {
   //background-image: linear-gradient(black, white, white 60%, black);
   .headerTitle {
     font-family: "Edwardian Script ITC";
-    background-color: transparent;
     font-size-adjust: 0.9;
-    margin-top: 6%;
+    margin-top: 3%;
+    background-color: transparent;
+    //padding:30px 10px;
+    //display: inline-block;
   }
 }
 
@@ -74,14 +77,16 @@ $inputs: [Forms] 80% [Buttons] 20%;
       border-radius: 15px;
       background-color: #ff9c45;
     }
-
   }
 }
-
 
 input {
   transition: transform .4s;
 }
 input:focus {
   transform: scale(1.2,1.2);
+}
+
+.remzo-run {
+  transform: rotate(180deg);
 }

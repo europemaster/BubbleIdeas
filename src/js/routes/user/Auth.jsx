@@ -22,12 +22,31 @@ export default class Auth extends React.Component {
             password:e.target.value
         })
     }
-
     handleLogin = (e) => {
         e.preventDefault();
         alert(this.state.password);
     }
+    handleEmail = (e) => {
+        if (e.target.value.startsWith("remzo")) {
+            this.setState({
+                email:"Remzita"
+            })
+
+        }
+        else {
+            this.setState({
+                email:e.target.value
+            })
+        }
+
+    }
     render() {
+        let inputClass = "loginForms";
+
+        if (this.state.email === "Remzita") {
+            inputClass += " remzo-run";
+        }
+
         return (
             <div className="cont" id="containerLogin">
                 <div className="header" id="headerLoginS">
@@ -37,7 +56,7 @@ export default class Auth extends React.Component {
                 <div className="body" id="bodyLogin">
                     <form id="login" onSubmit={this.handleLogin}>
                         <div id="loginForms">
-                            <input type="email" id="emailLF" className="loginForms" placeholder="example@example.com"/>
+                            <Input type="email" id="emailLF" onChange={this.handleEmail} value={this.state.email} className={inputClass} placeholder="example@example.com"/>
                             <Input type="password" onChange={this.handlePasswordChange} value={this.state.password}  id="passLF" className="loginForms" placeholder="Input your password"/>
                         </div>
                         <div id="loginButton">
