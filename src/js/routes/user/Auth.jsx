@@ -1,12 +1,31 @@
 import React from "react";
 import "./authStyle.scss";
 
+class Input extends React.Component {
+    render() {
+        console.log("render");
+        return <input {...this.props} />
+    }
+}
+
+
 export default class Auth extends React.Component {
     constructor() {
         super();
         this.state = {
-            title: "Register or login"
+            email:"",
+            password:""
         };
+    }
+    handlePasswordChange = (e) => {
+        this.setState({
+            password:e.target.value
+        })
+    }
+
+    handleLogin = (e) => {
+        e.preventDefault();
+        alert(this.state.password);
     }
     render() {
         return (
@@ -16,15 +35,15 @@ export default class Auth extends React.Component {
                 </div>
 
                 <div className="body" id="bodyLogin">
-                    <div id="login">
+                    <form id="login" onSubmit={this.handleLogin}>
                         <div id="loginForms">
                             <input type="email" id="emailLF" className="loginForms" placeholder="example@example.com"/>
-                            <input type="password" id="passLF" className="loginForms" placeholder="Input your password"/>
+                            <Input type="password" onChange={this.handlePasswordChange} value={this.state.password}  id="passLF" className="loginForms" placeholder="Input your password"/>
                         </div>
                         <div id="loginButton">
-                            <input type="button" id="loginLB" value="Log in"/>
+                            <input type="submit" id="loginLB" value="Log in"/>
                         </div>
-                    </div>
+                    </form>
                     <div id="register">
                         <div id="registerForms">
                             <input type="password" className="registerForms" placeholder="Full name"/>

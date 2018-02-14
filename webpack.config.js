@@ -7,6 +7,17 @@ module.exports = {
     entry: "./src/js/client.js",
     module: {
         rules: [{
+            test: /\.(png|jpg|svg|gif)$/,
+            use: [
+                {
+                    loader: 'file-loader',
+                    options: {
+                        outputPath: 'images/'
+                    }
+                }
+            ]
+        },
+            {
             test: /\.scss$/,
             use: [
 

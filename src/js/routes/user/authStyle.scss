@@ -11,11 +11,11 @@ input {
 }
 
 .header {
-  //background-image: url('./header.jpg');
+  background-image: url('./header.jpg');
   //background-image: linear-gradient(black, white, white 60%, black);
   .headerTitle {
     font-family: "Edwardian Script ITC";
-    background-color: #ffffff;
+    background-color: transparent;
     font-size-adjust: 0.9;
     margin-top: 6%;
   }
@@ -76,4 +76,12 @@ $inputs: [Forms] 80% [Buttons] 20%;
     }
 
   }
+}
+
+
+input {
+  transition: transform .4s;
+}
+input:focus {
+  transform: scale(1.2,1.2);
 }

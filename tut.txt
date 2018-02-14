@@ -1,3 +1,4 @@
 react routing
 npm i -g npm-check-updates -> ncu
 npm run dev (run webserver with hotload)
+chekc file watcher count
