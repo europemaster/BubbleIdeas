@@ -6,4 +6,6 @@ chekc file watcher count
 
 if login, check if empty -> alert if empty
 
-react router ->
+react router -> last version!!
+
+index.js /| create handling for registration, input new user, pass and token

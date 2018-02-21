@@ -1,5 +1,3 @@
 ### Questions
 
-- where to put images in file structure
-
-- background image
+ - html email verification exists, in js i could use regex, how to use html5 validation?
