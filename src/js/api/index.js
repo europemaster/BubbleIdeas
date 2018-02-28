@@ -5,7 +5,7 @@ let store = {
     users: [
         {email:'matej@visionect.com',password:'1234',token:'token1234'}
     ]
-}
+};
 
 export class Api {
 
@@ -31,6 +31,23 @@ export class Api {
                 resolve({
                     token:store.auth
                 })
+            },1000)
+        })
+    }
+
+    register(val) {
+        return new Promise((resolve, reject) => {
+            window.setTimeout(() => {
+                let userExist = store.users.find((o) => {
+                   return (o.email===val.email)
+                });
+                if (!userExist) {
+                    store.users.push(
+                        {email:val.email, password:val.password, token:val.password+'1234'}
+                    )
+                } else {
+                    reject(new Error('User with this email already exists!'))
+                }
             },1000)
         })
     }

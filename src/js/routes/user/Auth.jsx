@@ -12,17 +12,17 @@ class Input extends React.Component {
 
 class Login extends React.PureComponent {
     constructor() {
-        super()
+        super();
         this.state = {
             email:"",
             password:"",
         };
 
-    }
+    };
 
     static propTypes = {
         onLogin: PropType.func.isRequired
-    }
+    };
 
     handlePasswordChange = (e) => {
         this.setState({
@@ -74,9 +74,55 @@ class Login extends React.PureComponent {
     }
 }
 
+class Register extends React.PureComponent {
+    constructor() {
+        super();
+        this.state = {
+            fullName: "",
+            email: "",
+            pass1: "",
+            pass2: "",
+        };
+
+    };
+
+    static propTypes = {
+        onLogin: PropType.func.isRequired
+    };
+    handleRegister = (e) => {
+        e.preventDefault();
+
+        if (this.state.fullName === "" || this.state.email === "" || this.state.pass1 === "" || this.state.pass2 === "") {
+            alert("Fill all the forms!")
+            return;
+        }
+        if (this.state.pass1 !== this.state.pass2) {
+            alert("Passwords do not match!")
+        }
+
+        this.props.onLogin(this.state);
+    };
+    render() {
+        let inputClass = "registerForms";
+
+        return <form id="register" onSubmit={this.handleRegister}>
+            <div id="registerForms">
+                <Input type="text" className={inputClass} id="registerFN" value={this.state.fullName} onChange={this.handleRegister} placeholder="Full name"/>
+                <Input type="email" className={inputClass} id="registerE" value={this.state.email} onChange={this.handleRegister} placeholder="example@example.com"/>
+                <Input type="password" className={inputClass} id="registerP1" value={this.state.pass1} onChange={this.handleRegister} placeholder="Input your password"/>
+                <Input type="password" className={inputClass} id="registerP2" value={this.state.pass2} onChange={this.handleRegister} placeholder="Repeat your password"/>
+            </div>
+            <div id="registerButton">
+                <Input type="button" id="registerRF" value="Register"/>
+            </div>
+        </form>
+    }
+}
+
+
 export default class Auth extends React.Component {
     constructor() {
-        super()
+        super();
         this.state = {
             email:"",
             password:""
@@ -91,28 +137,21 @@ export default class Auth extends React.Component {
     }
 
     handleLogin = (val) => {
-
-
         api.login(val).then((val) => {
             alert('Success!');
         }).catch((err)=> {
             alert('Error: ' + err);
         })
-
-    };
-    handleRegisterFName = (e) => {
-        this.setState({
-
-        })
     };
     handleRegister = (e) => {
-        e.preventDefault();
-
+        api.register(val).then((val) => {
+            alert('Success!');
+        }).catch((err)=> {
+            alert('Error: ' + err);
+        })
     };
 
     render() {
-
-
         return (
             <div className="cont" id="containerLogin">
                 <div className="header" id="headerLoginS">
@@ -121,17 +160,7 @@ export default class Auth extends React.Component {
 
                 <div className="body" id="bodyLogin">
                     <Login onLogin={this.handleLogin}  />
-                    <div id="register">
-                        <div id="registerForms">
-                            <Input type="password" className="registerForms" value={this.register.fullName} placeholder="Full name"/>
-                            <Input type="email" className="registerForms" value={this.register.email} placeholder="example@example.com"/>
-                            <Input type="password" className="registerForms" value={this.register.pass1} placeholder="Input your password"/>
-                            <Input type="password" className="registerForms" value={this.register.pass2} placeholder="Repeat your password"/>
-                        </div>
-                        <div id="registerButton">
-                            <Input type="button" id="registerRF" value="Register"/>
-                        </div>
-                    </div>
+                    <Register onLogin={this.handleRegister}/>
                 </div>
             </div>
         );
