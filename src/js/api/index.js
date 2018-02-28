@@ -63,7 +63,8 @@ export class Api {
         })
     }
 
-    isAuthenticated() {
+
+    isAuthenticated(a,b) {
         return this.auth !==null;
     }
 

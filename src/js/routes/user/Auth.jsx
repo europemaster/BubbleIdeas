@@ -87,7 +87,7 @@ class Register extends React.PureComponent {
     };
 
     static propTypes = {
-        onLogin: PropType.func.isRequired
+        onRegister: PropType.func.isRequired
     };
     handleRegister = (e) => {
         e.preventDefault();
@@ -100,20 +100,20 @@ class Register extends React.PureComponent {
             alert("Passwords do not match!")
         }
 
-        this.props.onLogin(this.state);
+        this.props.onRegister(this.state);
     };
     render() {
         let inputClass = "registerForms";
 
         return <form id="register" onSubmit={this.handleRegister}>
             <div id="registerForms">
-                <Input type="text" className={inputClass} id="registerFN" value={this.state.fullName} onChange={this.handleRegister} placeholder="Full name"/>
-                <Input type="email" className={inputClass} id="registerE" value={this.state.email} onChange={this.handleRegister} placeholder="example@example.com"/>
-                <Input type="password" className={inputClass} id="registerP1" value={this.state.pass1} onChange={this.handleRegister} placeholder="Input your password"/>
-                <Input type="password" className={inputClass} id="registerP2" value={this.state.pass2} onChange={this.handleRegister} placeholder="Repeat your password"/>
+                <Input type="text" className={inputClass} value={this.state.fullName} onChange={this.handleRegister} placeholder="Full name"/>
+                <Input type="email" className={inputClass} value={this.state.email} onChange={this.handleRegister} placeholder="example@example.com"/>
+                <Input type="password" className={inputClass} value={this.state.pass1} onChange={this.handleRegister} placeholder="Input your password"/>
+                <Input type="password" className={inputClass} value={this.state.pass2} onChange={this.handleRegister} placeholder="Repeat your password"/>
             </div>
             <div id="registerButton">
-                <Input type="button" id="registerRF" value="Register"/>
+                <Input type="submit" id="registerRF" value="Register"/>
             </div>
         </form>
     }
@@ -143,7 +143,7 @@ export default class Auth extends React.Component {
             alert('Error: ' + err);
         })
     };
-    handleRegister = (e) => {
+    handleRegister = (val) => {
         api.register(val).then((val) => {
             alert('Success!');
         }).catch((err)=> {
@@ -160,7 +160,7 @@ export default class Auth extends React.Component {
 
                 <div className="body" id="bodyLogin">
                     <Login onLogin={this.handleLogin}  />
-                    <Register onLogin={this.handleRegister}/>
+                    <Register onRegister={this.handleRegister}/>
                 </div>
             </div>
         );
