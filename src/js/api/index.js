@@ -10,7 +10,7 @@ let store = {
 export class Api {
 
     constructor() {
-        this.auth = null;
+        this.auth = window.localStorage.getItem("auth");
     }
 
     login(val) {
@@ -28,6 +28,7 @@ export class Api {
 
 
                 this.auth = user.token;
+                window.localStorage.setItem("auth", this.auth)
                 resolve({
                     token:store.auth
                 })
@@ -57,6 +58,8 @@ export class Api {
             window.setTimeout(()=> {
 
                 this.auth = null;
+                window.localStorage.setItem("auth", this.auth)
+
 
                 resolve()
             },1000)
@@ -64,8 +67,8 @@ export class Api {
     }
 
 
-    isAuthenticated(a,b) {
-        return this.auth !==null;
+    isAuthenticated() {
+        return this.auth !== null;
     }
 
     voteUp(id) {

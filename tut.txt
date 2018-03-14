@@ -11,3 +11,5 @@ react router -> last version!!
 index.js /| create handling for registration, input new user, pass and token
  if in landing page, and not logged in, get to login pages
  check react router
+
+ https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/api/Redirect.md

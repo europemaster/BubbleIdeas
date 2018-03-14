@@ -39,7 +39,19 @@ module.exports = {
                 presets: ['react', 'es2015', 'stage-0'],
                 plugins: ['react-html-attrs', 'transform-class-properties', 'transform-decorators-legacy'],
             }
-        }],
+        },
+        {
+            test: /\.(ttf|svg|eot|woff|woff2)$/,
+            use: [
+                {
+                    loader: 'file-loader',
+                    options: {
+                        outputPath: 'fonts/'
+                    }
+                }
+            ]
+        }
+        ],
     },
     output: {
         path: path.resolve("./dist/"),

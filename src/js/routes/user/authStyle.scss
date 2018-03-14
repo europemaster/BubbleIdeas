@@ -6,10 +6,6 @@
     padding: 0;
 }
 
-input {
-  display: block;
-  width: 85%;
-}
 
 .header {
   background-image: url('./header.jpg');
@@ -22,6 +18,10 @@ input {
     //padding:30px 10px;
     //display: inline-block;
   }
+}
+.roundButton {
+  display: inline-block;
+  border-radius: 50% 50%;
 }
 
 .cont {
