@@ -1,0 +1,20 @@
+#app {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+.cont {
+  display: grid;
+  grid-template-rows: [header] 20% [body] 80%;
+  height: 100%;
+  width: 100%;
+  .header {
+    grid-template-columns: [bIdeas] 25% [project] 50% [profile] 25%;
+  }
+  .body {
+  //  how to create an area where tiles can be added dynamically
+  }
+}
+

@@ -1,4 +1,5 @@
 import React from "react";
+import "./landingPage.scss";
 import {Link} from 'react-router-dom';
 import profileImage from "./profile.png";
 
@@ -20,13 +21,13 @@ export default class LandingPage extends React.Component {
         return (
             <div className="cont" id="containerLogin">
                 <div className="header" id="headerLoginS">
-                    <div>
+                    <div id={"bIdeas"}>
                         <h2 className="headerTitle">BubbleIdeas</h2>
                     </div>
-                    <div>
+                    <div id={"projectView"}>
                         <h1>Project view</h1>
                     </div>
-                    <div>
+                    <div id={"profile"}>
                         <i className={"icon icon-person_outline btn-blue btn-circle"} />
                     </div>
                 </div>

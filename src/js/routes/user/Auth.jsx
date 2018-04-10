@@ -63,7 +63,7 @@ class Login extends React.PureComponent {
             inputClass += " remzo-run";
         }
         return <form id="login" onSubmit={this.handleLogin}>
-            <div id="loginForms">
+            <div id="loginForm">
                 <Input type="email" id="emailLF" onChange={this.handleEmail} value={this.state.email} className={inputClass} placeholder="example@example.com"/>
                 <Input type="password" onChange={this.handlePasswordChange} value={this.state.password}  id="passLF" className="loginForms" placeholder="Input your password"/>
             </div>
@@ -93,7 +93,7 @@ class Register extends React.PureComponent {
         e.preventDefault();
 
         if (this.state.fullName === "" || this.state.email === "" || this.state.pass1 === "" || this.state.pass2 === "") {
-            alert("Fill all the forms!")
+            alert("Fill all the forms!");
             return;
         }
         if (this.state.pass1 !== this.state.pass2) {
